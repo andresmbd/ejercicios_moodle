@@ -1,12 +1,7 @@
-import servicios
+import servicios, archivos
 
 inventario = []
 accion = ""
-
-# nombre = "" # nombre del producto
-# precio = 0 # precio del producto
-# cantidad = 0 # cantidad del producto
-
 
 while accion != "0":
     accion = input("\nQue accion desea realizar:\n"
@@ -17,6 +12,8 @@ while accion != "0":
     "4- Buscar producto\n" \
     "5- Actualizar producto\n" \
     "6- Eliminar producto\n" \
+    "7- Guardar CSV\n" \
+    "8- Cargar CSV\n" \
     "-> ")
     
 
@@ -39,6 +36,29 @@ while accion != "0":
 
     elif accion == "6":
         inventario = servicios.eliminar_producto(inventario)
+
+    elif accion == "7":
+        archivo =input("nombre del archivo a guardar más la extensión (.cvs): ").strip().lower()
+        ruta = "./data/" + archivo
+        archivos.guardar_csv(inventario, ruta)
+
+    elif accion == "8":
+        archivo = input("nombre del archivo: ").strip().lower()
+        ruta = "./data/" + archivo
+
+        nuevos_datos = archivos.cargar_csv(ruta)
+
+        if len(nuevos_datos) > 0:
+            opcion = input("1- Sobrescribir | 2- Fusionar: ")
+
+            if opcion == "1":
+                inventario = nuevos_datos
+
+            elif opcion == "2":
+                inventario = inventario + nuevos_datos
+
+            else:
+                print("Opción inválida")
 
     elif accion == "0":
         print("\nA la orden")

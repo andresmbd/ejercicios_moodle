@@ -49,27 +49,29 @@ def mostrar_inventario(lista:list):
 
 
 def buscar_producto(lista:list):
-    busqueda_prod = input("Nombre del producto: ").strip().lower()
-    resultado = None
-
     if len(lista) == 0:
         print("\nEl inventario esta vacio")
     else:
+        busqueda_prod = input("Nombre del producto: ").strip().lower()
+        resultado = None
+
+    
         for dict in lista:
             if dict["nombre"] == busqueda_prod:
                 resultado = dict
     
-    if resultado:
-            print(resultado)
-    else:
-        print("No encontrado")
+        if resultado:
+                print(resultado)
+        else:
+            print("No encontrado")
 
 def actualizar_producto(lista:list):
-    busqueda_prod = input("Nombre del producto a cambiar: ").strip().lower()
-    encontrado = False # variable para identificar si el prod es encontrado o no
     if len(lista) == 0:
         print("\nEl inventario esta vacio\n")
     else:
+        busqueda_prod = input("Nombre del producto a cambiar: ").strip().lower()
+        encontrado = False # variable para identificar si el prod es encontrado o no
+    
         for producto in lista:
 
             if producto["nombre"] == busqueda_prod:
@@ -125,32 +127,58 @@ def actualizar_producto(lista:list):
 
                 encontrado = True
 
-    if encontrado:
-        print("Producto actualizado")
-    else:
-        print("Producto no encontrado")
+        if encontrado:
+            print("Producto actualizado")
+        else:
+            print("Producto no encontrado")
 
     return lista
 
 def eliminar_producto(lista:list):
     busqueda_prod = input("Nombre del producto a eliminar: ").strip().lower()
+    nueva_lista = []
     encontrado = False
 
     for producto in lista:
         if producto["nombre"] == busqueda_prod:
-            lista.remove(producto)
             encontrado = True
+        else:
+            nueva_lista.append(producto)
+        
     if encontrado:
         print("Producto eliminado")
     else:
         print("Producto no encontrado")
 
-    return lista
+    return nueva_lista
 
 
-def calcular_estadistica(lista:list):
-    total = 0
-    cantidad_productos = len(lista)
-    for i in lista:
-        total += (i["precio"] * i["cantidad"])
-    print("\nCantidad total de productos:", cantidad_productos,"| Valor total del inventario: $", total)
+def calcular_estadistica(lista: list):
+    if len(lista) == 0:
+        print("\nEl inventario está vacío")
+    else:
+        unidades_totales = 0
+        valor_total = 0
+
+        producto_mas_caro = lista[0] # toma el 1er elemento de la lista
+        producto_mayor_stock = lista[0] # || para cantidad
+
+        for producto in lista:
+            unidades_totales += producto["cantidad"]
+            valor_total += producto["precio"] * producto["cantidad"]
+
+            if producto["precio"] > producto_mas_caro["precio"]: # si el 1er es mayor que el siguiente
+                producto_mas_caro = producto # lo reemplazo
+
+            if producto["cantidad"] > producto_mayor_stock["cantidad"]:
+                producto_mayor_stock = producto # lo reemplaza
+
+        print()
+        print("Unidades totales:", unidades_totales)
+        print("Valor total inventario: $", valor_total)
+
+        print("\nProducto más caro:")
+        print(producto_mas_caro["nombre"], "| Precio:", producto_mas_caro["precio"])
+
+        print("\nProducto con mayor stock:")
+        print(producto_mayor_stock["nombre"], "| Cantidad:", producto_mayor_stock["cantidad"])
