@@ -132,16 +132,16 @@ footer{
     grid-column: 5/8;
     grid-row: 3/4;
     display: flex;
-    background-image: url(imagenes/gallina.jpeg);
+    background-image: url(imagenes/gallina.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top;
+    background-position: center;
 }
 .conejo{
     grid-column: 3/5;
     grid-row: 3/4;
     display: flex;
-    background-image: url(imagenes/conejo.jpeg);
+    background-image: url(imagenes/conejo.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -172,7 +172,7 @@ footer{
     grid-column: 1/4;
     grid-row: 1/2;
     display: flex;
-    background-image: url(imagenes/loro.jpeg);
+    background-image: url(imagenes/loro.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -181,10 +181,11 @@ footer{
     grid-column: 4/8;
     grid-row: 1/2;
     display: flex;
-    background-image: url(imagenes/caballo\(1\).jpg);
+    background-image: url(imagenes/caballos.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
+    background-position: center;
 }
 article{
     display: flex;
@@ -200,5 +201,5 @@ article{
 }
 article:hover{
     transform: scale(1.1);
-    box-shadow: 0 5px 20px black;
+    box-shadow: 0 5px 20px black;    
 }
