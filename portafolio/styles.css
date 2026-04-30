@@ -2,46 +2,90 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-wrap: wrap;
+
 }
 :root{ 
     --color-fondo: #afafaf88;
     --color-secundario: #464545;
     --color-texto: rgb(0, 225, 255);
-    --border-circle: 20px;
-    --text-size: 20px;
+    --border-circle: 1rem;
+    --text-size: 1rem;
+    --color-change: #ffffff;
 }
 .body-index{
-    font-family: Arial, Helvetica, sans-serif;
     background-color: var(--color-fondo);
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 0 10px 0 10px;
+    gap: 3rem;
+    padding: 0 1rem;
     display: grid;
     grid-template:
-    'header' 60px
-    'nav' 50px
+    'header' 3rem
+    'nav' 2rem
     'main' auto
-    'footer' 20px;
+    'footer' 1rem;
+}
+.cards{
+    display: flex;
+    gap: 1rem;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+}
+.card{
+    background-color: var(--color-change);
+    color: var(--color-secundario);
+    font-weight: bold;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 12rem;
+    gap: 1rem;
+    height: 18rem;
 }
 p{
     font-size: var(--text-size);
 }
+/* .contact{
+    padding: 1rem;
+    margin: 0 1rem;
+} */
+.form-info{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.form-comment{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.send{
+    margin-top: 1rem;
+    cursor: pointer;
+    font-size: var(--text-size);
+}
+.send:active{
+    transform: scale(0.9);
+}
+.send:hover{
+    color: var(--color-change);
+}
+
 section{
     background-color: var(--color-secundario);
     color: var(--color-texto);
-    padding: 10px;
+    padding: 1rem;
+    gap: 1rem;
     border-radius: var(--border-circle);
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    
+    align-items: center; 
+    flex-wrap: wrap;
+    flex-shrink: 1;
+    flex-grow: 1;
 }
-img{
-    width: 20%;
-    border-radius: 50%;
-    box-shadow: 5px 5px 20px black;
-}
+
 .header-index{
     border: 1px solid black;
     border-radius: var(--border-circle);
@@ -55,20 +99,21 @@ img{
     grid-area: header;
 
 }
-a{
+a,.send,.btn-menu{
     text-decoration: none;
     color: var(--color-secundario);
     border: 1px black solid;
-    padding: 5px;
+    padding: 1rem;
     border-radius: var(--border-circle);
     background-color: var(--color-texto);
     font-weight: bold;
-
 }
 
 a:hover{
-    color: rgb(255, 255, 255);
+    color: var(--color-change);
 }
+
+
 li{
     list-style: none;
     color: var(--color-secundario);
@@ -76,26 +121,53 @@ li{
 }
 ul{
     display: flex;
-    gap: 20px;
+    gap: 1rem;
     flex-wrap: wrap;
+    align-items: center;
 }
+
+form .form-info input, form .form-comment textarea{
+    background-color: var();
+    border-radius: var(--border-circle);
+    padding: 1rem;
+    color: var(--color-secundario);
+    font-weight: bold;
+    font-size: var(--text-size);
+}
+
+/* .proyectos{
+    display:flex;
+    gap: 5rem;
+} */
 .secciones{
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    gap: 5rem;
+    
+}
+button{
+    cursor: pointer;
+}
+button:active{
+    transform: scale(0.9);
 }
 nav{
     background-color: var(--color-texto);
     grid-area: nav;
     display: flex;
-    justify-content: center;
+    gap: 1rem;
+    justify-content: space-between;
     align-items: center;
     border-radius: var(--border-circle);
+    height: 3rem;
+    height: max-content;
 
 
 }
 main{
     grid-area: main;
     min-height: 100vh;
+
 }
 footer{
     background-color: aquamarine;
@@ -107,9 +179,9 @@ footer{
     gap: 1rem;
     background-color: var(--color-fondo);
     grid-template:
-    'header' 60px
+    'header' 3rem
     'main' auto
-    'footer' 20px;
+    'footer' 1rem;
 }
 .header-mascotas{
     border: 1px solid black;
@@ -119,13 +191,13 @@ footer{
     align-items: center;
     background-color: var(--color-secundario);
     color: var(--color-texto);
-    gap: 5px;
-    padding: 10px 0;
+    gap: 1rem;
+    padding: 1rem 0;
 }
 .main-mascotas{
     display: grid;
-    grid-template-columns: repeat(10,1fr);
-    grid-template-rows: repeat(auto-fit, minmax(100px,1fr));
+    grid-template-columns: repeat(7,1fr);
+    grid-template-rows: repeat(auto-fit,minmax(12rem,1fr));
     grid-gap: 3rem;
 }
 .gallina{
@@ -160,7 +232,7 @@ footer{
 }
 .gato{
     grid-row: 2/3;
-    grid-column: 7/11;
+    grid-column: 3/8;
     display: flex;
     background-image: url(imagenes/gato.jpeg);
     background-repeat: no-repeat;
@@ -194,16 +266,100 @@ article{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    transition: transform 0.8s ease;
+    transition: transform 0.1s ease;
     border-radius: var(--border-circle);
-    padding: 0 10px;
+    padding: 0 1rem;
     overflow: hidden;
 }
 article:hover{
     transform: scale(1.1);
     box-shadow: 0 5px 20px black;    
 }
+.form-info div{
+    display: flex;
+    flex-direction: column;
+}
 
-@media (max-width: 768px){
-    
+
+@media(max-width:540px ){
+    nav{
+        /* background-color: red; */
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10rem;
+        /* position: absolute; */
+        left: 0;
+
+    }
+    section.about{
+        margin-top: 11rem;
+    }
+    ul{
+        flex-direction: column;
+    }
+    .proyectos .cards{
+        display: flex;
+        flex-direction: column;
+    }
+   .main-mascotas{
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(3,1fr);
+   }
+   .loro{
+    grid-column: 1/5;
+    grid-row: 1/2;
+   }
+   .perro{
+    grid-column: 1/5;
+    grid-row: 2/3;
+   }
+   .conejo{
+    grid-column: 1/5;
+    grid-row: 3/4;
+   }
+   .caballo{
+    grid-column: 5/11;
+    grid-row: 1/2;
+   }
+   .gato{
+    grid-column: 5/11;
+    grid-row: 2/3;
+   }
+   .gallina{
+    grid-column: 5/11;
+   }
+}
+
+@media (min-width: 540px) and (max-width: 912px){
+    /* nav{
+        background-color: blue;
+    } */
+     .main-mascotas{
+    display: grid;
+    grid-template-columns: repeat(9,1fr);
+    grid-template-rows: repeat(2,1fr);
+   }
+   .loro{
+    grid-column: 1/4;
+   }
+   .caballo{
+    grid-column: 4/7;
+   }
+   .gato{
+    grid-column: 7/10;
+    grid-row: 1/2;
+   }
+   .perro{
+    grid-row: 2/3;
+    grid-column: 1/4;
+   }
+   .conejo{
+    grid-column: 4/7;
+    grid-row: 2/3;
+   }
+   .gallina{
+    grid-row: 2/3;
+    grid-column: 7/10;
+   }
 }

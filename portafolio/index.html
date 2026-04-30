@@ -5,41 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/90cf7aff80.js" crossorigin="anonymous"></script>
 </head>
 <body class="body-index">
     <header class="header-index">
         <h1>Andres Barrios</h1>
     </header> 
     <nav>
+        <button class="btn-menu"><i class="fa-solid fa-power-off"></i></button>
         <ul>
             <li>Inicio</li>
             <li>Servicios</li>
             <li>Contacto</li>
-            <li><a href="mascotas.html">Ver Mascotas</a></li>
+            
         </ul>
+        <a href="mascotas.html">Ver Mascotas</a>
     </nav>
     <main>
         <div class="secciones">
-            <section>
-                <h2>Sobre mí</h2>
+            <section class="about">
+                <h2>About me</h2>
                 <p>
-                    ¡Hola! Soy un coder y un futuro desarrollador web, me gusta ver las series y peliculas y pasar tiempo con mi familia
+                    Hi! I'm a coder and an aspiring web developer. I enjoy watching TV shows and movies and spending time with my family.                
                 </p>
             </section>
             <section class="proyectos">
-                <h2>Proyectos</h2>
-                <ul>
-                    <li><a href="//www.google.com" target="_blank">Proyecto 1</a></li>
-                    <li><a href="//www.google.com" target="_blank">Proyecto 2</a></li>
-                    <li><a href="//www.google.com" target="_blank">Proyecto 3</a></li>
-                </ul>
+                <h2>Projects</h2>
+                <div class="cards">
+                    <article class="card">
+                        <span>This was my first website I designed, It was a job that the TL asked us to do at colledge; it is about a favorite show I like, I did in Attack on Titan base, because is the only anime I liked</span>
+                        <a href="//www.google.com" target="_blank">First Web Site</a></li>
+                    </article>
+                    <article class="card">
+                        <span>It is one one of the projects I am proud about because I liked the execution, the color pallets, the carrusel, how i did it responsive, i think it might be my favorite one of all</span>
+                        <a href="//www.google.com" target="_blank">Landing Page</a></li>
+                    </article>
+                    <article class="card">
+                        <span>This a project I am stil working on because I want it to do it eventually, every time I get knowledge about something, I will add it, I want it to be public and share with everyone</span>
+                        <a href="//www.google.com" target="_blank">Personal Portfolio</a></li>
+                    </article>
+                </div>
+                
             </section>
-            <section>
-                <h2>Contacto</h2>
+            <section class="contact">
+                <h2>Contact</h2>
                 <form>
-                    <label for="name">Nombre</label>
-                    <input type="text" name="nombre" placeholder="Ingrese su nombre">
-                    <button>Guardar</button>
+                    <div class="form-info">
+                        <div>
+                            <label for="name" style="font-weight: bold;">Nombre</label>
+                            <input type="text" name="name" placeholder="Enter your name" style="flex-grow: 1;">
+                        </div>
+                        <div>
+                            <label for="email" style="font-weight: bold;">Email</label>
+                            <input type="email" name="email" placeholder="Type your email" style="flex-grow: 1;">
+                        </div>
+                    </div>
+                    <div class="form-comment">
+                        <label for="comment" style="font-weight: bold;">Comments</label>
+                        <textarea name="comment" rows="5" placeholder="Type your comments here..."></textarea>
+                    </div>
+                    <button class="send">Send</button>
                 </form>
             </section>
         </div>
