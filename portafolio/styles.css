@@ -14,8 +14,9 @@
     --text-size: 1rem;
     --color-change: #ffffff;
 }
+
 .body-index{
-    background-color: var(--color-fondo);
+    background-color: #afafaf88;
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -26,6 +27,9 @@
     'nav' 2rem
     'main' auto
     'footer' 1rem;
+}
+.dark{
+    background-color: black;
 }
 .cards{
     display: flex;
@@ -89,7 +93,6 @@ section{
 .header-index{
     border: 1px solid black;
     border-radius: var(--border-circle);
-    /* clip-path: ellipse(); */
     list-style: none;
     display: flex;
     justify-content: center;
@@ -279,7 +282,36 @@ article:hover{
     display: flex;
     flex-direction: column;
 }
+.footer-index{
+    border-radius: var(--border-circle);
+    background-color: var(--color-secundario);
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 1rem;
+}
+.links{
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+}
 
+
+.footer-cont{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-content: center;
+}
+
+.footer-cont a{
+    max-width: 50px;
+    max-height: 50px;
+}
+.footer-index p{
+    align-self: center;
+}
 
 @media(max-width:540px ){
     nav{

@@ -1,9 +1,35 @@
 let button = document.querySelector('.btn-menu')
 button.addEventListener('click', ()=>{
-    document.body.style.backgroundColor = '#000000';
-
+  
+   document.body.classList.toggle("dark")
 })
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let button = document.querySelector('.btn-menu')
+// button.addEventListener('click', ()=>{
+  
+//     document.body.style.backgroundColor = '#000000';
+// })
