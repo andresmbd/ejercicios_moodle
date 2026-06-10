@@ -17,26 +17,25 @@ botonNotas.addEventListener('click', () => {
         listaNotas.appendChild(li);
         listaNotas.appendChild(deleteButton);
         inputNotas.value = "";
-        localStorage.setItem('notas', JSON.stringify(notes))
         console.log('Lista agregada', li);
+        
+        notas = [...listaNotas.querySelectorAll('li')];
+        const notes = notas.map(li => li.textContent);
+        console.log(notes);
 
-        updateUl();
+        localStorage.setItem('notas', JSON.stringify(notes)) // al agregarse otra se muestran las anteriores notas no eliminadas
+
         deleteButton.addEventListener('click', () => {
             li.remove();
             deleteButton.remove()
+            console.log(notes);
             console.log('removido', li);
-            localStorage.removeItem('nota')
-            updateUl();
+            localStorage.removeItem('notas')// Se ve que se elimina todo pero se mantienen las anteriores
         });
     }
 });
 
-function updateUl() {
-    notas = [...listaNotas.querySelectorAll('li')];
-    // console.log(notas);
-    const notes = notas.map(li => li.textContent);
-    console.log(notes);
-}
-
-
-
+window.addEventListener('DOMContentLoaded', ()=>{
+    listaNotas.innerHTML = localStorage.getItem('notas')
+    // Al agregarse con la pag recargada se sobrescribe lo que ya estaba en el localStorage
+});
